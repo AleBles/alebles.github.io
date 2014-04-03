@@ -1,14 +1,16 @@
 ---
-title: Hello, World!
 layout: default
 ---
-
-#Hello world!
-
-Proin eleifend libero accumsan felis luctus nec consectetur purus commodo. \
-Phasellus sodales est nec massa imperdiet commodo. Maecenas risus nulla, pl\
-acerat vel vestibulum vel, dapibus quis libero.
-
-Donec libero libero, bibendum non condimentum ac, ullamcorper at sapien. Du\
-is feugiat urna vel justo cursus facilisis. Vivamus ligula dui, convallis a\
- varius vitae, facilisis eget magna.
+{% for post in site.posts limit: 10 %}
+<div class="row-fluid">
+  <div class="span12">
+    <h2>{{ post.title }}</h2>
+    <h4>{{ post.date | date_to_long_string }}</h4>
+    <p>
+      {{ post.content | truncatewords:50 }}
+      <br/>
+      <a href="{{ post.url }}">Read more</a>
+    </p>
+  </div>
+</div>
+{% endfor %}
